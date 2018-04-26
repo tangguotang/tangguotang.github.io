@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script type="text/javascript" src="cookie.js"></script>
+<script type="text/javascript">
+
+
+
+	var name;
+	var pwd;
+	function checkUserName(){
+		document.getElementById("error").innerHTML = "";
+		name = document.getElementById("name").value;
+		if(name==""){
+			alert("用户名不能为空");
+			return false;
+		}
+		return true;
+	}
+	
+	function checkPwd(){
+		document.getElementById("error").innerHTML = "";
+		pwd = document.getElementById("pwd").value;
+		if(name==""){
+			alert("密码不能为空");
+			return false;
+		}
+		return true;
+	}
+	
+	function checkAll(){
+		if(checkUserName()&&checkPwd()){
+			if("yuyao"==name && "123456"==pwd){
+				cookie.set("user","yuyao",10);
+				return true;
+			}
+			if("zhanglan"==name && "123456"==pwd){
+				cookie.set("user","zhanglan",10);
+				return true;
+			}
+		}
+		document.getElementById("error").innerHTML = "用户名或者密码错误";
+		
+		return false;
+	}
+	
+
+	
+	
+</script>
+
+</head>
+<body>
+	<form action="main.html">
+	<table>
+		<tr>
+			<td>用户名</td>
+			<td><input type="text" id="name" onblur="checkUserName();"/></td>
+		</tr>
+		<tr>
+			<td>密码</td>
+			<td><input type="password" id="pwd" onblur="checkPwd();"/>
+			<span id="error"></span>
+			</td>
+		</tr>
+		<tr>
+			<td><input type="submit" onclick="return checkAll();"/></td>
+			<td></td>
+		</tr>
+	</table>
+	</form>
+</body>
+</html>

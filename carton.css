@@ -1,0 +1,63 @@
+#img1{
+  width:400px;
+  height:312px;
+  position: absolute;
+  left: 30px;
+  top: 20px;
+}
+#img2{
+
+  position: absolute;
+  left: 30px;
+  top: 332px;
+}
+
+#img3{
+  position: absolute;
+  width:400px;
+  height:312px;
+
+  left: 500px;
+  top: 20px;
+}
+#img4{
+
+  position: absolute;
+  left: 650px;
+  top: 332px;
+}
+#img5{
+  width:300px;
+  height:200px;
+  position: absolute;
+  left: 320px;
+  top: 320px;
+}
+#button1{
+	position: absolute;
+	width:100px;
+	height:50px;
+	  left: 50px;
+	  top: 800px;
+}
+#button2{
+	position: absolute;
+		width:100px;
+	height:50px;
+	  left: 200px;
+	  top: 800px;
+}
+#liya_1{
+position: absolute;
+width:280px;
+height:120px;
+left:100px;
+top:100px;
+}
+#yoyi_1{
+position: absolute;
+width:280px;
+height:120px;
+left:540px;
+top:100px;
+}

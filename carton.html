@@ -1,0 +1,83 @@
+<!doctype html>
+<html lang="en">
+<link rel="stylesheet" type="text/css" href="carton.css" />
+ <head>
+  <meta charset="UTF-8">
+  <meta name="Generator" content="EditPlus®">
+  <meta name="Author" content="">
+  <meta name="Keywords" content="">
+  <meta name="Description" content="">
+  <title>Document</title>
+  <script type="text/javascript"> 
+	var max=0;
+	var sd=50;  //这里是控制速度的
+	var txt,lentxt,go;
+	var x;
+	var click_times=0;
+function id_s() 
+{
+	click_times=click_times+1;
+	if (click_times<3)
+	{
+		x="con";
+	}else x="con1";
+
+	textticker()
+
+}
+
+function textlist() 
+ {
+	//x="con";
+  if (max>=lentxt){clearTimeout(go);}
+  document.getElementById(x).innerHTML+=txt.substr(max,1);
+ // document.getElementById(x).innerHTML=document.getElementById(x).innerHTML.replace(/\%\$/ig,'<br>')
+  max++
+ }
+function textticker()
+ {
+	//x="con";
+  txt=document.getElementById(x).innerHTML;
+  //txt=txt.replace(/\<br\>/ig,'%$')
+  lentxt=txt.length;
+  document.getElementById(x).innerHTML='';
+  go = setInterval(textlist, sd);
+ }
+	function say_liya(){
+		document.getElementById("img1").src="say1.jpg";
+		document.getElementById("img2").src="tim1.png";
+		document.getElementById("liya_1").innerHTML="  我是liya，现在是我在说话~,如果我说了很多的话会是神马样的展现效果，我尝试一下"
+		document.getElementById("img3").src="";
+		document.getElementById("img4").src="";
+		document.getElementById("yoyi_1").innerHTML="";
+		x="liya_1";
+		textticker();
+		max=0;
+		}
+	function say_yoyi(){
+		document.getElementById("img1").src="";
+		document.getElementById("img2").src="";
+		document.getElementById("yoyi_1").innerHTML="我是yoyi，现在轮到我在说话~"
+		document.getElementById("img3").src="say2.jpg";
+		document.getElementById("img4").src="tim2.png";
+		document.getElementById("liya_1").innerHTML=""
+		x="yoyi_1";
+		textticker();
+		max=0;
+		}
+  </script>
+
+ </head>
+ <body>
+	<img id="img1"   src="" ></img>
+	<img id="img2"   src=""></img>
+	<img id="img3"   src=""></img>
+	<img id="img4"   src=""></img>
+	<img id="img5"   src=""></img>
+	<p id="liya_1"></p>
+	<p id="yoyi_1"></p>
+	<button id="button1" onclick="say_liya()">liya</button>
+	<button id="button2" onclick="say_yoyi()">yoyi</button>
+
+ </body>
+</html>

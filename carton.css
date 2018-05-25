@@ -1,6 +1,5 @@
 #img1{
-  width:400px;
-  height:312px;
+
   position: absolute;
   left: 30px;
   top: 20px;
@@ -14,9 +13,6 @@
 
 #img3{
   position: absolute;
-  width:400px;
-  height:312px;
-
   left: 500px;
   top: 20px;
 }
@@ -27,8 +23,6 @@
   top: 332px;
 }
 #img5{
-  width:300px;
-  height:200px;
   position: absolute;
   left: 320px;
   top: 320px;

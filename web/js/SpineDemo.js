@@ -1,14 +1,19 @@
-  /*//初始化舞台
+ //初始化舞台
     Laya.init(1334,750);
+	Laya.Stat.show();
+	//Laya.stage.bgColor = null;
+	Laya.stage.bgColor = "#ffffff";
     //创建一个Skeleton对象
+	
     var skeleton = new Laya.Skeleton();
     //添加到舞台
     Laya.stage.addChild(skeleton);
     skeleton.pos(600,400);
+	skeleton.scale(0.8, 0.8);
     //通过加载直接创建动画
-    skeleton.load("res/spine/alien.sk");
-*/
-   
+    skeleton.load("res/spine/kldp_spine_loding.sk");
+
+  /*  
  (function()
 {
 	var EventData = Laya.EventData;
@@ -32,6 +37,8 @@
 	var mCurrSkinIndex = 0;
 	var mFactory2;
 	var mLabelSprite;
+	var btnCnt = 0;
+
 	(function(){
 		Laya.init(Browser.width, Browser.height,WebGL);
 		Laya.stage.bgColor = "#ffffff";
@@ -58,7 +65,7 @@
 		mArmature = mFactory.buildArmature(1);
 		mArmature.x = mStartX;
 		mArmature.y = mStartY;
-		mArmature.scale(0.5, 0.5);
+		mArmature.scale(0.8, 0.8);
 		Laya.stage.addChild(mArmature);
 		mArmature.on(Event.LABEL, this, onEvent);
 		mArmature.on(Event.STOPPED, this, completeHandler);
@@ -98,3 +105,4 @@
 		mLabelSprite.removeSelf();
 	}
 })();
+*/

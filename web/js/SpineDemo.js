@@ -52,12 +52,14 @@
 	{
 		//创建一个Button实例
 		var btn = new Laya.Button(skin);
+		var wh = document.body.clientWidth;
+
 		//将Button添加到舞台上
 		Laya.stage.addChild(btn);
 		//设置Button相关属性
 		btn.width = 100;
 		btn.height = 50;
-		btn.pos(100,100);
+		btn.pos(wh/2-200,100);
 		btn.label = "加载动画";
 		btn.on(Laya.Event.CLICK,this,display_alert);
 
@@ -67,7 +69,7 @@
 		//设置Button相关属性
 		btn1.width = 100;
 		btn1.height = 50;
-		btn1.pos(250,100);
+		btn1.pos(wh/2+100,100);
 		btn1.label = "清除动画";
 		btn1.on(Laya.Event.CLICK,this,display_alert1);			
 	}

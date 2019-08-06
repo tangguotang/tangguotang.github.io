@@ -1,7 +1,7 @@
  //初始化舞台
  Laya.init(1334,750);
 
- Laya.Stat.show();
+// Laya.Stat.show();
  //Laya.stage.bgColor = null;
  Laya.stage.bgColor = "#ffffff";
  //创建一个Skeleton对象 

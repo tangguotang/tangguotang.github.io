@@ -1,108 +1,92 @@
  //初始化舞台
-    Laya.init(1334,750);
-	Laya.Stat.show();
-	//Laya.stage.bgColor = null;
-	Laya.stage.bgColor = "#ffffff";
-    //创建一个Skeleton对象
-	
-    var skeleton = new Laya.Skeleton();
-    //添加到舞台
-    Laya.stage.addChild(skeleton);
-    skeleton.pos(600,400);
-	skeleton.scale(0.8, 0.8);
-    //通过加载直接创建动画
-    skeleton.load("res/spine/kldp_spine_loding.sk");
+ Laya.init(1334,750);
 
-  /*  
- (function()
-{
-	var EventData = Laya.EventData;
-	var Skeleton  = Laya.Skeleton;
-	var Templet   = Laya.Templet;
-	var Sprite    = Laya.Sprite;
-	var Event     = Laya.Event;
-	var Browser   = Laya.Browser;
-	var Handler   = Laya.Handler;
-	var Stat      = Laya.Stat;
-	var Tween     = Laya.Tween;
-	var WebGL     = Laya.WebGL;
-
-	var mAniPath;
-	var mStartX = 400;
-	var mStartY = 500;
-	var mFactory;
-	var mActionIndex = 0;
-	var mCurrIndex = 0;
-	var mArmature;
-	var mCurrSkinIndex = 0;
-	var mFactory2;
-	var mLabelSprite;
-	var btnCnt = 0;
-
-	(function(){
-		Laya.init(Browser.width, Browser.height,WebGL);
-		Laya.stage.bgColor = "#ffffff";
-		Stat.show();
-		mLabelSprite = new Sprite();
-		startFun();
-	})();
-	function startFun()
-	{
-		mAniPath = "res/spine/kldp_spine_loding.sk";
-		mFactory = new Templet();
-		mFactory.on(Event.COMPLETE, this, parseComplete);
-		mFactory.on(Event.ERROR, this, onError);
-		mFactory.loadAni(mAniPath);
-	}
-	
-	function onError()
-	{
-		trace("error");
-	}
-	
-	function parseComplete() {
-		//创建模式为1，可以启用换装
-		mArmature = mFactory.buildArmature(1);
-		mArmature.x = mStartX;
-		mArmature.y = mStartY;
-		mArmature.scale(0.8, 0.8);
-		Laya.stage.addChild(mArmature);
-		mArmature.on(Event.LABEL, this, onEvent);
-		mArmature.on(Event.STOPPED, this, completeHandler);
-		play();
-	}
-	
-	function completeHandler()
-	{
-		play();
-	}
-	
-	function play()
-	{
-		mCurrIndex++;
-		if (mCurrIndex >= mArmature.getAnimNum())
-		{
-			mCurrIndex = 0;
-		}
-		mArmature.play(mCurrIndex,false);
-		
-	}
-	
-	function onEvent(e)
-	{
-		var tEventData = e;
-		
-		Laya.stage.addChild(mLabelSprite);
-		mLabelSprite.x = mStartX;
-		mLabelSprite.y = mStartY;
-		mLabelSprite.graphics.clear();
-		mLabelSprite.graphics.fillText(tEventData.name, 0, 0, "20px Arial", "#ff0000", "center");
-		Tween.to(mLabelSprite, { y:mStartY - 200 }, 1000, null,Handler.create(this,playEnd))
-	}
-	
-	function playEnd()
-	{
-		mLabelSprite.removeSelf();
-	}
-})();
+ Laya.Stat.show();
+ //Laya.stage.bgColor = null;
+ Laya.stage.bgColor = "#ffffff";
+ //创建一个Skeleton对象 
+ var skeleton = new Laya.Skeleton();
+ //添加到舞台
+ Laya.stage.addChild(skeleton);
+ skeleton.pos(600,400);
+ skeleton.scale(0.8, 0.8);
+      /*
+	 //创建一个Skeleton对象 
+	 var skeleton = new Laya.Skeleton();
+	 //添加到舞台
+	 Laya.stage.addChild(skeleton);
+	 skeleton.pos(600,400);
+	 skeleton.scale(0.8, 0.8);
+	 //通过加载直接创建动画
+	 skeleton.load("res/spine/kldp_spine_loding.sk");
 */
+ (function()
+ {
+	 var Sprite  = Laya.Sprite;
+	 var Stage   = Laya.Stage;
+	 var Texture = Laya.Texture;
+	 var Browser = Laya.Browser;
+	 var Handler = Laya.Handler;
+	 var WebGL   = Laya.WebGL;
+	 var skin = "res/btn.png";
+	 (function()
+	 {
+		 // 不支持WebGL时自动切换至Canvas
+		// Laya.init(Browser.clientWidth, Browser.clientHeight, WebGL);
+		// Laya.stage.alignV = Stage.ALIGN_MIDDLE;
+		// Laya.stage.alignH = Stage.ALIGN_CENTER;
+		// Laya.stage.scaleMode = "showall";
+		// Laya.stage.bgColor = "#ffffff";
+		 showApe();
+		 onLoaded();
+	 })();
+	 function showApe()
+	 {
+		 // 方法1：使用loadImage
+		 var ape = new Sprite();
+		 Laya.stage.addChild(ape);
+		 ape.loadImage("res/layabox.png");        
+	 }
+
+	function onLoaded()
+	{
+		//创建一个Button实例
+		var btn = new Laya.Button(skin);
+		//将Button添加到舞台上
+		Laya.stage.addChild(btn);
+		//设置Button相关属性
+		btn.width = 100;
+		btn.height = 50;
+		btn.pos(100,100);
+		btn.label = "加载动画";
+		btn.on(Laya.Event.CLICK,this,display_alert);
+
+		var btn1 = new Laya.Button(skin);
+		//将Button添加到舞台上
+		Laya.stage.addChild(btn1);
+		//设置Button相关属性
+		btn1.width = 100;
+		btn1.height = 50;
+		btn1.pos(250,100);
+		btn1.label = "清除动画";
+		btn1.on(Laya.Event.CLICK,this,display_alert1);			
+	}
+
+	function display_alert()
+  {
+  	//alert("加载动画") 
+	  //通过加载直接创建动画
+	  skeleton.load("res/spine/kldp_spine_loding.sk");
+	  skeleton.visible=true;
+  }
+
+  function display_alert1()
+  {
+  	//alert("清除动画") 
+	  //通过加载直接创建动画
+	  skeleton.visible=false;
+  }
+
+ })();
+
+ 

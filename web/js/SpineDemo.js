@@ -52,7 +52,7 @@
 	{
 		//创建一个Button实例
 		var btn = new Laya.Button(skin);
-		var wh = window.screen.availHeight;
+		var wh = 1080;
 
 		//将Button添加到舞台上
 		Laya.stage.addChild(btn);

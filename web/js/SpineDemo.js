@@ -52,7 +52,7 @@
 	{
 		//创建一个Button实例
 		var btn = new Laya.Button(skin);
-		var wh = document.body.clientWidth;
+		var wh = document.documentElement.clientWidth;
 
 		//将Button添加到舞台上
 		Laya.stage.addChild(btn);
